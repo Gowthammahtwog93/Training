@@ -3,7 +3,7 @@
   hosts: all
   become: true
   vars:
-    nexus_url: http://3.27.174.2:8081/repository
+    nexus_url: http://13.203.46.152:8081/repository
     repository_type: java-maven-war-app-release
     group_id: com%2Fmycompany%2Fapp
     artifact_id: hello-world-war
@@ -15,13 +15,13 @@
       url: "{{nexus_url}}/{{repository_type}}/{{group_id}}%2F{{artifact_id}}%2F{{version}}-{{build_number}}%2F{{artifact_id}}-{{version}}-{{ build_number}}.war"
       dest: /home/ec2-user
       username: admin
-      password: livestream
+      password: admin
 
   - name: Rename war file
     ansible.builtin.shell: mv /home/ec2-user/{{group_id}}%2F{{artifact_id}}%2F{{version}}-{{build_number}}%2F{{artifact_id}}-{{version}}-{{ build_number}}.war /home/ec2-user/theinterviewcompany.war
 
   - name: Deploying artifact in webapps
-    ansible.builtin.shell: cp /home/ec2-user/theinterviewcompany.war /opt/apache-tomcat-9.0.93/webapps/theinterviewcompany.war
+    ansible.builtin.shell: cp /home/ec2-user/theinterviewcompany.war /opt/apache-tomcat-9.0.97/webapps/theinterviewcompany.war
 
   - name: remove the artifact
     ansible.builtin.shell: rm -rf /home/ec2-user/theinterviewcompany.war
