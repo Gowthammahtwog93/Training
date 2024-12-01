@@ -1,4 +1,1 @@
-[all:vars]
-ansible_ssh_common_args=' -o
-strictHostKeyChecking=no
 3.109.203.207
