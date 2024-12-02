@@ -1,6 +1,5 @@
 pipeline{
     agent{
-        label 'jenkins_agent'
     }
 
     tools {
@@ -10,7 +9,7 @@ pipeline{
     stages{
         stage('SCM Checkout'){
             steps{
-                checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/theinterviewcompany/java-maven-war-app.git']])
+                checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Gowthammahtwog93/Training.git']])
             }
 
         }
@@ -25,8 +24,8 @@ pipeline{
             steps{
                 withSonarQubeEnv("SonarQube") {
                     sh "${tool("Sonar_4.6.2")}/bin/sonar-scanner \
-                    -Dsonar.host.url=http://54.66.238.159:9000/ \
-                    -Dsonar.login=sqp_97a364fc874b05b597e12ca633ec3aa020fba511 \
+                    -Dsonar.host.url=http://65.2.187.130:9000/ \
+                    -Dsonar.login=sqp_0a056f229e169e6b87f7c6a377dc3599ef8bbc64 \
                     -Dsonar.java.binaries=target \
                     -Dsonar.projectKey=java-maven-war-app"                    
                 }
