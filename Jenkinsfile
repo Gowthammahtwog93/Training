@@ -22,7 +22,7 @@ pipeline{
         stage('Sonar Scan'){
             steps{
                 withSonarQubeEnv("SonarQube") {
-                    sh "${tool("Sonar_4.6.2")}/bin/sonar-scanner \
+                    sh "${tool("Sonar_6.0.0")}/bin/sonar-scanner \
                     -Dsonar.host.url=http://65.2.187.130:9000/ \
                     -Dsonar.login=sqp_0a056f229e169e6b87f7c6a377dc3599ef8bbc64 \
                     -Dsonar.java.binaries=target \
