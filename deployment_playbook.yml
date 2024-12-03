@@ -8,17 +8,17 @@
     group_id: com%2Fmycompany%2Fapp
     artifact_id: hello-world-war
     version: 2.0.0
-    build_number: "{{build_number}}"
+    build_number: "{{ build_number }}"
   tasks:
   - name: Download file from a file path
     ansible.builtin.get_url:
-      url: "{{nexus_url}}/{{repository_type}}/{{group_id}}%2F{{artifact_id}}%2F{{version}}-{{build_number}}%2F{{artifact_id}}-{{version}}-{{ build_number}}.war"
+      url: "{{nexus_url}}/{{repository_type}}/{{group_id}}%2F{{artifact_id}}%2F{{version}}-{{build_number}}%2F{{artifact_id}}-{{version}}-{{build_number}}.war"
       dest: /home/ec2-user
       username: admin
       password: livestream
 
   - name: Rename war file
-    ansible.builtin.shell: mv /home/ec2-user/{{group_id}}%2F{{artifact_id}}%2F{{version}}-{{build_number}}%2F{{artifact_id}}-{{version}}-{{ build_number}}.war /home/ec2-user/theinterviewcompany.war
+    ansible.builtin.shell: mv /home/ec2-user/{{group_id}}%2F{{artifact_id}}%2F{{version}}-{{build_number}}%2F{{artifact_id}}-{{version}}-{{build_number}}.war /home/ec2-user/theinterviewcompany.war
 
   - name: Deploying artifact in webapps
     ansible.builtin.shell: cp /home/ec2-user/theinterviewcompany.war /opt/apache-tomcat-9.0.97/webapps/theinterviewcompany.war
