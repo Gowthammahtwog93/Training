@@ -19,7 +19,7 @@ pipeline{
             }
         }
 
-        stage('Sonar Scan'){
+        stage('SonarQube'){
             steps{
                 withSonarQubeEnv("Sonar_5.0.0") {
                     sh "${tool("Sonar_5.0.0")}/bin/sonar-scanner \
