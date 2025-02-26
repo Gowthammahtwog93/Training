@@ -37,7 +37,7 @@ jobs:
     - name: Upload build output
       uses: actions/upload-artifact@v4
       with:
-        name: build-output
+        name: hello-world-war*
         path: .github/workflows
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
