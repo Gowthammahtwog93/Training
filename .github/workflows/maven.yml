@@ -34,6 +34,11 @@ jobs:
       with:
         name: build-output
         path: .github/workflows
+    - name: Upload build output
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-output
+        path: .github/workflows
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
